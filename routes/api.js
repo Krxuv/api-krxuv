@@ -38,7 +38,9 @@ let {
   wallpaper,
   komiku,
   tebakgambar,
-  surah
+  surah,
+  igdl,
+  pindl
 } = require('../lib/scraper');
 const {
   endpoints
@@ -563,7 +565,7 @@ router.get('/download/instagram', async (req, res, next) => {
     if (!url) return res.json(loghandler.noturl)
     if (!url.includes('instagram.com')) return res.json(loghandler.invalidlink)
     if (listkey.includes(Apikey)) {
-      savefrom(url)
+      igdl(url)
         .then(result => {
           res.json({
             status: true,
@@ -579,13 +581,13 @@ router.get('/download/instagram', async (req, res, next) => {
       res.json(loghandler.invalidKey)
     }
   });
-router.get('/download/savefrom', async (req, res, next) => {
+router.get('/download/pinterest', async (req, res, next) => {
   let Apikey = req.query.apikey
   let url = req.query.url
   if (!Apikey) return res.json(loghandler.notparam)
   if (!url) return res.json(loghandler.noturl)
   if (listkey.includes(Apikey)) {
-    savefrom(url)
+    pindl(url)
       .then(result => {
         res.json({
           status: true,
