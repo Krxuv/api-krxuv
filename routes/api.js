@@ -2,7 +2,7 @@ __path = process.cwd()
 //=================[ let MODULE ]==================//
 let favicon = require('serve-favicon');
 let express = require('express');
-let creator = 'Kimimaru'
+let creator = 'Krxuv'
 let secure = require('ssl-express-www');
 let cors = require('cors');
 let fetch = require('node-fetch');
@@ -182,7 +182,7 @@ loghandler = {
   }
 }
 router.use(favicon(__path + '/views/favicon.ico'));
-const listkey = ['k1mimaru'];
+const listkey = ['krxuvonly'];
 //=================[ SEARCH ]===================//
 router.get('/search/stickersearch', async (req, res, next) => {
     const q = req.query.q;
